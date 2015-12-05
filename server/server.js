@@ -22,11 +22,19 @@ console.log('Server listening on port : ' + appPort);
 var io = require('socket.io').listen(server);
 
 var fs = require('fs');
+var lr = require('line-reader');
 
-
+var svg = "";
 
 io.sockets.on('connection', function(socket){
 	console.log('new connection!');
+	
+	socket.on('draw', function(){
+		lr.eachLine('svg.txt', function(line, last){
+			svg += line;	
+			if(last) console.log(svg);
+		});
+	});
 	
 	//TODO
 
