@@ -20,6 +20,30 @@ public class SVGLangBaseListener implements SVGLangListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterEnd_point(@NotNull SVGLangParser.End_pointContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEnd_point(@NotNull SVGLangParser.End_pointContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterStart_point(@NotNull SVGLangParser.Start_pointContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStart_point(@NotNull SVGLangParser.Start_pointContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLocation(@NotNull SVGLangParser.LocationContext ctx) { }
 	/**
 	 * {@inheritDoc}

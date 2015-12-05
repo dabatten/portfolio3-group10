@@ -12,6 +12,26 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface SVGLangListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link SVGLangParser#end_point}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnd_point(@NotNull SVGLangParser.End_pointContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SVGLangParser#end_point}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnd_point(@NotNull SVGLangParser.End_pointContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link SVGLangParser#start_point}.
+	 * @param ctx the parse tree
+	 */
+	void enterStart_point(@NotNull SVGLangParser.Start_pointContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link SVGLangParser#start_point}.
+	 * @param ctx the parse tree
+	 */
+	void exitStart_point(@NotNull SVGLangParser.Start_pointContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link SVGLangParser#location}.
 	 * @param ctx the parse tree
 	 */

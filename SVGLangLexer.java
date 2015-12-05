@@ -39,14 +39,24 @@ public class SVGLangLexer extends Lexer {
 	};
 
 
+		//rect and circle
 		int width = 0;
 		int height = 0;
 		int radius = 0;
 		int x = 0;
 		int y = 0;
+		
+		//line
+		int x1 = 0;
+		int y1 = 0;
+		int x2 = 0;
+		int y2 = 0;
+		
+		//rgb
 		int red = 0;
 		int green = 0;
 		int blue = 0;
+		
 		Color c = new Color(red, green, blue);
 		SVGparser svg = new SVGparser();
 
