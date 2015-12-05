@@ -1,13 +1,32 @@
 <html>
+	<head>
+		<style>
+			svg {
+				border: 1px solid black;
+				float: left;
+				margin : 1.5em;
+			}
+			#editor {
+				margin-top: 1.5em;
+			}
+			
+		</style>
+	</head>
     <body>
     	<h1>Portfolio 3</h1>
-        <svg width='1000' height='1000'>
+        <svg width='500' height='500'>
             <!--
             <circle r='80' cx='400' cy='300' style='fill:rgb(0,0,255)' />
 <line x1='1' y1='2' x2='200' y2='200' style='stroke:rgb(0,255,0);stroke-width:5' />
 <rect width='100' height='50' x='50' y='60' style='fill:rgb(255,4,222)' />
 			-->
         </svg>
+        <div id="editor">
+        	<p>Input SVGLang code here:</p>
+        	<textarea rows="20" cols="60" ></textarea>
+        	<br>
+        	<button type='submit'>Draw</button>
+        </div>
     </body>
 
 </html>
