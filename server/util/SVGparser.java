@@ -16,7 +16,7 @@ public class SVGparser {
 	//convert string array to xml file
 	public void buildFile(){
 		try{
-			File f = new File("server/svg.txt");
+			File f = new File("svg.txt");
 			PrintWriter pw = new PrintWriter(f);
 			//for each svg item add to file
 			for(int i = 0; i < svgList.size(); i++){

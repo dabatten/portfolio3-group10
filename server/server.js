@@ -29,7 +29,19 @@ var lr = require('line-reader');
 var promise = require('bluebird');
 var eachLine = promise.promisify(lr.eachLine); //add a promise to eachLine()
 
+//check operating system
+var os = require('os');
+//console.log(os.platform() + " | " + os.type());
+var invalid_os = (os.platform() != "darwin" && os.platform() != "linux");
+if (invalid_os) console.log("This program only supports Mac OSX and Linux!");
 
+
+//use unix commands
+var exec = require('child_process').exec;
+function puts(error, stdout, stderr) {
+	console.log(stdout); 
+}
+//exec("ls", puts);
 
 io.sockets.on('connection', function(socket){
 	console.log('new connection!');
@@ -51,6 +63,10 @@ io.sockets.on('connection', function(socket){
 		//overwrite SVGLang input file
 		fs.writeFile('test.in', code);
 		//run "java org.antlr.v4.runtime.misc.TestRig SVGLang start < test.in"
+		exec("java org.antlr.v4.runtime.misc.TestRig SVGLang start < test.in", function(){
+			console.log('redraw');
+			socket.emit('redraw');
+		});
 	});
 	
 	//TODO

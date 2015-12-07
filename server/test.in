@@ -1,0 +1,3 @@
+circle 60 (400,300) yellow;
+line (1,2) (200,200) blue;
+rectangle 100 50 (50,60) RGB(255,4,222);
