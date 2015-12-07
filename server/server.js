@@ -18,22 +18,39 @@ app.get('/', function(req, res){
 server.listen(appPort); 
 console.log('Server listening on port : ' + appPort);
 
-
+//websocket module
 var io = require('socket.io').listen(server);
 
+//file reading modules
 var fs = require('fs');
 var lr = require('line-reader');
 
-var svg = "";
+//promise module
+var promise = require('bluebird');
+var eachLine = promise.promisify(lr.eachLine); //add a promise to eachLine()
+
+
 
 io.sockets.on('connection', function(socket){
 	console.log('new connection!');
 	
 	socket.on('draw', function(){
-		lr.eachLine('svg.txt', function(line, last){
+		console.log('server draw');
+		var svg = "";
+		//read each line and store in string
+		eachLine('svg.txt', function(line, last){
 			svg += line;	
 			if(last) console.log(svg);
+		}).then(function(){
+			//update client
+			socket.emit('svg', svg);
 		});
+	});
+	
+	socket.on('code', function(code){
+		//overwrite SVGLang input file
+		fs.writeFile('test.in', code);
+		//run "java org.antlr.v4.runtime.misc.TestRig SVGLang start < test.in"
 	});
 	
 	//TODO

@@ -6,14 +6,28 @@ $(document).ready(function(){
 
 	
 	//add draw button event handler
-	$("button").on('click', function () {
+	$("#draw").on('click', function () {
 		var code = $("textarea").val();
-		console.log('code', code);
+		console.log('draw');
 		socket.emit('draw'); //TODO add code to emit
 
 	});
-
 	
+	//add code button event handler
+	$("#code").on('click', function () {
+		var code = $("textarea").val();
+		console.log('code', code);
+		socket.emit('code', code); //TODO add code to emit
+
+	});
+
+	socket.on('svg', function(elements){
+		console.log('client svg', elements);
+		//append new elements
+		$('svg').html(elements);
+	});
+	
+
 
 
 });
