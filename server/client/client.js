@@ -23,6 +23,8 @@ $(document).ready(function(){
 		console.log('client svg', elements);
 		//append new elements
 		$('svg').html(elements);
+		$('#output p').text(elements);
+
 	});
 	
 	socket.on('redraw', function(){

@@ -9,14 +9,20 @@
 			#editor {
 				margin-top: 1.5em;
 			}
+			#output {
+				color: red;
+			}
 			
 		</style>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.min.js"></script>
 	</head>
     <body>
-    	<h1>Portfolio 3</h1>
-        <svg width='500' height='500'>
+    	<h1>Portfolio 3 - Group 10</h1>
+    	<h2>Davis Batten and Chris Kelley</h2>
+    	<p>Add SVGLang code to the text box and hit "Code" to update the SVG canvas and print out the html code. 
+    	Or you can edit the "svg.txt" file manually and press "Draw" to update the canvas.</p>
+        <svg width='500' height='500' id="canvas">
             <!--
             <circle r='80' cx='400' cy='300' style='fill:rgb(0,0,255)' />
 <line x1='1' y1='2' x2='200' y2='200' style='stroke:rgb(0,255,0);stroke-width:5' />
@@ -29,6 +35,9 @@
         	<br>
         	<button id="code">Code</button>
         	<button id="draw">Draw</button>
+        </div>
+        <div id="output">
+        	<p>SVG code evaluated here</p>
         </div>
         <script type="text/javascript" src="client.js"></script>
     </body>

@@ -20,13 +20,13 @@ public class SVGLangParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__3=1, T__2=2, T__1=3, T__0=4, INT=5, WS=6, SEMI=7, TEXT=8, CIRCLE=9, 
-		RECTANGLE=10, LINE=11, POLYGON=12, RED=13, BLUE=14, YELLOW=15, GREEN=16, 
-		BLACK=17, WHITE=18;
+		T__2=1, T__1=2, T__0=3, INT=4, WS=5, SEMI=6, TEXT=7, CIRCLE=8, RECTANGLE=9, 
+		LINE=10, POLYGON=11, RED=12, BLUE=13, YELLOW=14, GREEN=15, BLACK=16, WHITE=17, 
+		COMMA=18;
 	public static final String[] tokenNames = {
-		"<INVALID>", "'RGB('", "')'", "','", "'('", "INT", "WS", "';'", "'text'", 
-		"'circle'", "'rectangle'", "'line'", "'polygon'", "'red'", "'blue'", "'yellow'", 
-		"'green'", "'black'", "'white'"
+		"<INVALID>", "'RGB('", "')'", "'('", "INT", "WS", "';'", "'text'", "'circle'", 
+		"'rectangle'", "'line'", "'polygon'", "'red'", "'blue'", "'yellow'", "'green'", 
+		"'black'", "'white'", "','"
 	};
 	public static final int
 		RULE_start = 0, RULE_command = 1, RULE_shape = 2, RULE_rect = 3, RULE_circle = 4, 
@@ -474,19 +474,19 @@ public class SVGLangParser extends Parser {
 				c = Color.white;
 				}
 				break;
-			case T__3:
+			case T__2:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(72); match(T__3);
+				setState(72); match(T__2);
 				setState(73); ((ColorContext)_localctx).INT = match(INT);
 				red = (((ColorContext)_localctx).INT!=null?Integer.valueOf(((ColorContext)_localctx).INT.getText()):0);
-				setState(75); match(T__1);
+				setState(75); match(COMMA);
 				setState(76); ((ColorContext)_localctx).INT = match(INT);
 				green = (((ColorContext)_localctx).INT!=null?Integer.valueOf(((ColorContext)_localctx).INT.getText()):0);
-				setState(78); match(T__1);
+				setState(78); match(COMMA);
 				setState(79); ((ColorContext)_localctx).INT = match(INT);
 				blue = (((ColorContext)_localctx).INT!=null?Integer.valueOf(((ColorContext)_localctx).INT.getText()):0);
-				setState(81); match(T__2);
+				setState(81); match(T__1);
 				c = new Color(red, green, blue);
 				}
 				break;
@@ -508,6 +508,7 @@ public class SVGLangParser extends Parser {
 	public static class LocationContext extends ParserRuleContext {
 		public Token INT;
 		public List<TerminalNode> INT() { return getTokens(SVGLangParser.INT); }
+		public TerminalNode COMMA() { return getToken(SVGLangParser.COMMA, 0); }
 		public TerminalNode INT(int i) {
 			return getToken(SVGLangParser.INT, i);
 		}
@@ -534,10 +535,10 @@ public class SVGLangParser extends Parser {
 			setState(85); match(T__0);
 			setState(86); ((LocationContext)_localctx).INT = match(INT);
 			x = (((LocationContext)_localctx).INT!=null?Integer.valueOf(((LocationContext)_localctx).INT.getText()):0);
-			setState(88); match(T__1);
+			setState(88); match(COMMA);
 			setState(89); ((LocationContext)_localctx).INT = match(INT);
 			y = (((LocationContext)_localctx).INT!=null?Integer.valueOf(((LocationContext)_localctx).INT.getText()):0);
-			setState(91); match(T__2);
+			setState(91); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -580,10 +581,10 @@ public class SVGLangParser extends Parser {
 			setState(93); match(T__0);
 			setState(94); ((Start_pointContext)_localctx).INT = match(INT);
 			x1 = (((Start_pointContext)_localctx).INT!=null?Integer.valueOf(((Start_pointContext)_localctx).INT.getText()):0);
-			setState(96); match(T__1);
+			setState(96); match(COMMA);
 			setState(97); ((Start_pointContext)_localctx).INT = match(INT);
 			y1 = (((Start_pointContext)_localctx).INT!=null?Integer.valueOf(((Start_pointContext)_localctx).INT.getText()):0);
-			setState(99); match(T__2);
+			setState(99); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -626,10 +627,10 @@ public class SVGLangParser extends Parser {
 			setState(101); match(T__0);
 			setState(102); ((End_pointContext)_localctx).INT = match(INT);
 			x2 = (((End_pointContext)_localctx).INT!=null?Integer.valueOf(((End_pointContext)_localctx).INT.getText()):0);
-			setState(104); match(T__1);
+			setState(104); match(COMMA);
 			setState(105); ((End_pointContext)_localctx).INT = match(INT);
 			y2 = (((End_pointContext)_localctx).INT!=null?Integer.valueOf(((End_pointContext)_localctx).INT.getText()):0);
-			setState(107); match(T__2);
+			setState(107); match(T__1);
 			}
 		}
 		catch (RecognitionException re) {
@@ -653,23 +654,23 @@ public class SVGLangParser extends Parser {
 		"\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\13\3\13\3\13"+
 		"\3\13\3\13\3\13\3\13\3\13\3\13\2\2\f\2\4\6\b\n\f\16\20\22\24\2\2n\2\33"+
 		"\3\2\2\2\4\"\3\2\2\2\6&\3\2\2\2\b(\3\2\2\2\n\61\3\2\2\2\f8\3\2\2\2\16"+
-		"U\3\2\2\2\20W\3\2\2\2\22_\3\2\2\2\24g\3\2\2\2\26\27\5\4\3\2\27\30\7\t"+
+		"U\3\2\2\2\20W\3\2\2\2\22_\3\2\2\2\24g\3\2\2\2\26\27\5\4\3\2\27\30\7\b"+
 		"\2\2\30\32\3\2\2\2\31\26\3\2\2\2\32\35\3\2\2\2\33\31\3\2\2\2\33\34\3\2"+
 		"\2\2\34\36\3\2\2\2\35\33\3\2\2\2\36\37\b\2\1\2\37\3\3\2\2\2 #\5\6\4\2"+
 		"!#\5\f\7\2\" \3\2\2\2\"!\3\2\2\2#\5\3\2\2\2$\'\5\b\5\2%\'\5\n\6\2&$\3"+
-		"\2\2\2&%\3\2\2\2\'\7\3\2\2\2()\7\f\2\2)*\7\7\2\2*+\b\5\1\2+,\7\7\2\2,"+
-		"-\b\5\1\2-.\5\20\t\2./\5\16\b\2/\60\b\5\1\2\60\t\3\2\2\2\61\62\7\13\2"+
-		"\2\62\63\7\7\2\2\63\64\b\6\1\2\64\65\5\20\t\2\65\66\5\16\b\2\66\67\b\6"+
-		"\1\2\67\13\3\2\2\289\7\r\2\29:\5\22\n\2:;\5\24\13\2;<\5\16\b\2<=\b\7\1"+
-		"\2=\r\3\2\2\2>?\7\17\2\2?V\b\b\1\2@A\7\20\2\2AV\b\b\1\2BC\7\21\2\2CV\b"+
-		"\b\1\2DE\7\22\2\2EV\b\b\1\2FG\7\23\2\2GV\b\b\1\2HI\7\24\2\2IV\b\b\1\2"+
-		"JK\7\3\2\2KL\7\7\2\2LM\b\b\1\2MN\7\5\2\2NO\7\7\2\2OP\b\b\1\2PQ\7\5\2\2"+
-		"QR\7\7\2\2RS\b\b\1\2ST\7\4\2\2TV\b\b\1\2U>\3\2\2\2U@\3\2\2\2UB\3\2\2\2"+
-		"UD\3\2\2\2UF\3\2\2\2UH\3\2\2\2UJ\3\2\2\2V\17\3\2\2\2WX\7\6\2\2XY\7\7\2"+
-		"\2YZ\b\t\1\2Z[\7\5\2\2[\\\7\7\2\2\\]\b\t\1\2]^\7\4\2\2^\21\3\2\2\2_`\7"+
-		"\6\2\2`a\7\7\2\2ab\b\n\1\2bc\7\5\2\2cd\7\7\2\2de\b\n\1\2ef\7\4\2\2f\23"+
-		"\3\2\2\2gh\7\6\2\2hi\7\7\2\2ij\b\13\1\2jk\7\5\2\2kl\7\7\2\2lm\b\13\1\2"+
-		"mn\7\4\2\2n\25\3\2\2\2\6\33\"&U";
+		"\2\2\2&%\3\2\2\2\'\7\3\2\2\2()\7\13\2\2)*\7\6\2\2*+\b\5\1\2+,\7\6\2\2"+
+		",-\b\5\1\2-.\5\20\t\2./\5\16\b\2/\60\b\5\1\2\60\t\3\2\2\2\61\62\7\n\2"+
+		"\2\62\63\7\6\2\2\63\64\b\6\1\2\64\65\5\20\t\2\65\66\5\16\b\2\66\67\b\6"+
+		"\1\2\67\13\3\2\2\289\7\f\2\29:\5\22\n\2:;\5\24\13\2;<\5\16\b\2<=\b\7\1"+
+		"\2=\r\3\2\2\2>?\7\16\2\2?V\b\b\1\2@A\7\17\2\2AV\b\b\1\2BC\7\20\2\2CV\b"+
+		"\b\1\2DE\7\21\2\2EV\b\b\1\2FG\7\22\2\2GV\b\b\1\2HI\7\23\2\2IV\b\b\1\2"+
+		"JK\7\3\2\2KL\7\6\2\2LM\b\b\1\2MN\7\24\2\2NO\7\6\2\2OP\b\b\1\2PQ\7\24\2"+
+		"\2QR\7\6\2\2RS\b\b\1\2ST\7\4\2\2TV\b\b\1\2U>\3\2\2\2U@\3\2\2\2UB\3\2\2"+
+		"\2UD\3\2\2\2UF\3\2\2\2UH\3\2\2\2UJ\3\2\2\2V\17\3\2\2\2WX\7\5\2\2XY\7\6"+
+		"\2\2YZ\b\t\1\2Z[\7\24\2\2[\\\7\6\2\2\\]\b\t\1\2]^\7\4\2\2^\21\3\2\2\2"+
+		"_`\7\5\2\2`a\7\6\2\2ab\b\n\1\2bc\7\24\2\2cd\7\6\2\2de\b\n\1\2ef\7\4\2"+
+		"\2f\23\3\2\2\2gh\7\5\2\2hi\7\6\2\2ij\b\13\1\2jk\7\24\2\2kl\7\6\2\2lm\b"+
+		"\13\1\2mn\7\4\2\2n\25\3\2\2\2\6\33\"&U";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
